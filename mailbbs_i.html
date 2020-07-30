@@ -1,0 +1,21 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=Shift_JIS">
+<title>写メール　BBS</title>
+</head>
+<body bgcolor="#ffffff" text="#333333" link="#666666" vlink="#999999" alink="#ffcc00">
+<font size=4><b>写メール　BBS</b><br></font><br>
+<a href="riyou.html" target="_blank">利用</a>|
+<a href="pop.php">更新</a>
+<br><hr size=1>
+
+[loop main]
+<b>[{$main/id}]{$main/subject}</b><br>
+{$main/body}
+[if main/filename]<br>添付：<a href='{$main/sam_url}'>{$main/filename}</a>({$main/sam_size}KB)[/if]
+{$main/amc}
+<br>{$main/date}<hr>
+[/loop]
+
+[if prev]<a href='{$prev}'>←前</a> &nbsp;[/if][if next]<a href='{$next}'>次→</a> [/if]
+<br><br><font size=2>-<a href=http://php.s3.to/ target=_blank>ﾚｯﾂPHP!</a>-</font>
+</body></html>

@@ -1,0 +1,40 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=Shift_JIS">
+<title>写メール　BBS</title>
+</head>
+<body bgcolor="#ffffff" text="#333333" link="#666666" vlink="#999999" alink="#ffcc00">
+<center>
+<font size=4><b>写メール　BBS</b><br></font>
+<br><br>
+<a href="riyou.html" target="_blank">利用方法</a> &nbsp;
+<a href="pop.php">更新</a> &nbsp;
+<a href="{$self}?mode=admin">削除・編集</a>
+<br><br>
+<form action="{$self}" method=POST>
+投稿メアドorパス：
+<input type=hidden name=mode value=admin>
+<input type=text name=pass size=15>
+<input type=submit value=" 削 除 "><br>
+{$err}
+[if prev]<a href='{$prev}'>←PREV</a> &nbsp;[/if][if next]<a href='{$next}'>NEXT→</a> [/if]
+
+[loop main]
+<table border=0 cellpadding=0 cellspacing=0 bgcolor="#99cc99">
+<tr><td>
+  <table border=0 cellpadding=3 cellspacing=1 width=390>
+  <tr><td><input type=checkbox name="del[{$main/id}]" value=on>消<font size=2 color="#ffffff">No.{$main/id} {$main/subject}</font></td>
+  </tr>
+  <tr><td bgcolor="#ffffff"><font size=2>
+[if main/sam]<a href='{$main/url}'><img src='{$main/sam_url}' border=1 align=right vspace=5 alt="({$main/size}KB)"></a>[/if]
+[if main/img]<img src='{$main/url}' border=0 align=right vspace=5 alt="({$main/size}KB)">[/if]
+{$main/body}
+[if main/noimg]<br>添付：<a href='{$main/url}'>{$main/filename}</a>({$main/size}KB)[/if]
+<br clear="right"><br><div align="right">{$main/date} <a href="{$self}?mode=edit&id={$main/id}">編集</a></div>
+  </font></td></tr></table>
+</td></tr></table>
+[/loop]
+
+[if prev]<a href='{$prev}'>←PREV</a> &nbsp;[/if][if next]<a href='{$next}'>NEXT→</a> [/if]
+</form>
+<br><br><font size=2>-<a href=http://php.s3.to/ target=_blank>レッツPHP!</a>-</font>
+</center></body></html>

@@ -1,0 +1,33 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=Shift_JIS">
+<title>写メール　BBS 編集</title>
+</head>
+<body bgcolor="#ffffff" text="#333333" link="#666666" vlink="#999999" alink="#ffcc00">
+<a href="{$self}">←戻る</a>
+<form action="{$self}" method=POST>
+{$err}
+<center>
+<table border=0 cellpadding=0 cellspacing=0 bgcolor="#99cc99" align=center>
+<tr><td>
+  <table border=0 cellpadding=3 cellspacing=1 width=390>
+  <tr><td><font size=2 color="#ffffff">No.{$id} <input type=text name=subject size=65 value='{$subject}'></font></td>
+  </tr>
+  <tr><td bgcolor="#ffffff"><font size=2><textarea name=body rows=15 cols=55>{$body}</textarea></tr>
+[if tmp]<tr><td bgcolor="#f0fff0"><a href="{$tmp}">添付({$att})</a>　<input type=checkbox name=tmpdel value=1>削除する</a></td></tr>[/if]
+  <tr><td align=right><select name=y>[loop year]<option value={$year/num}{$year/sel}>{$year/num}[/loop]</select>/
+<select name=m>[loop mon]<option value={$mon/num}{$mon/sel}>{$mon/num}[/loop]</select>/
+<select name=d>[loop day]<option value={$day/num}{$day/sel}>{$day/num}[/loop]</select>　
+<select name=h>[loop hour]<option value={$hour/num}{$hour/sel}>{$hour/num}[/loop]</select>:
+<select name=i>[loop min]<option value={$min/num}{$min/sel}>{$min/num}[/loop]</select>
+</td></tr></table>
+</td></tr></table>
+<br>
+
+投稿メアドorパス：
+<input type=hidden name=id value={$id}>
+<input type=hidden name=act value=edit>
+<input type=text name=pass size=15>
+<input type=submit value=" 編　集 "><br>
+</form>
+<br><br><font size=2>-<a href=http://php.s3.to/ target=_blank>レッツPHP!</a>-</font>
+</center></body></html>
